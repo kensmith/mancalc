@@ -18,7 +18,6 @@ struct commaifier_t
             rotor = (rotor + 1) % 3;
             s_.push_back(c);
         }
-        show(s_);
     }
 
     const std::string& str() const
