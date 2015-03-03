@@ -1,0 +1,7 @@
+libtestables.a
+.*.o
+.*.d
+.test-*
+.*.sh
+engine
+cscope.*

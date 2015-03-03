@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>[Man Calc]></title>
+    <meta name="viewport" content="initial-scale=0.7">
+    <style TYPE="text/css">
+body {
+  font-family: "American Typewriter", monospace;
+  font-size: 24px;
+  background: black;
+  color: green;
+}
+    </style>
+  </head>
+  <body>
+    <center>
+      <img src="logo-medium.png" alt="[Man Calc]>"/><br>
+      <p>
+        Man Calc (manual calculator) is a calculator for iOS
+        that can deal with very large or very small numbers
+        (around 1000 decimal places of precision), and
+        supports both infix and postfix syntax. Here are
+        some examples. Type the stuff on the left. The
+        symbol &#x21a9; means "press enter" and the symbol
+        &larr; means press delete". The following line
+        shows the resulting stack between the square braces.
+        The rightmost value in the stack is the result of
+        the most recent operation.
+      </p>
+      <p>
+        <table border="1">
+          <caption>Examples</caption>
+          <thead>
+            <tr>
+              <th>
+                Type this
+              </th>
+              <th>
+                it means this
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>
+              []&gt;1+2*3-4&#x21a9;
+            </td>
+            <td>
+              order of operations demo
+            </td>
+          </tr>
+          <tr>
+            <td>
+              [3]&gt;pi&#x21a9;
+            </td>
+            <td>
+              push the constant &pi; onto the stack
+            </td>
+          </tr>
+          <tr>
+            <td>
+              [3 3.14159265...]&gt;eng&#x21a9;
+            </td>
+            <td>
+              switch to engineering notation<br>without losing internal precision
+            </td>
+          </tr>
+          <tr>
+            <td>
+              [3   3.14159]&gt;1&#x21a9;2&#x21a9;3&#x21a9;
+            </td>
+            <td>
+              push a few numbers onto the stack
+            </td>
+          </tr>
+          <tr>
+            <td>
+              [3   3.14159   1   2   3]&gt;+&#x21a9;&#x21a9;&#x21a9;&#x21a9;
+            </td>
+            <td>
+              sum the numbers in the stack
+            </td>
+          </tr>
+          <tr>
+            <td>
+              [12.1416]&gt;&larr;
+            </td>
+            <td>
+              pop (remove) a number from the stack
+            </td>
+          </tr>
+          <tr>
+            <td>
+              []&gt;e&#x21a9;
+            </td>
+            <td>
+              push Euler's Number onto the stack
+            </td>
+          </tr>
+          <tr>
+            <td>
+              [2.71828]&gt;ln&#x21a9;
+            </td>
+            <td>
+              take the natural logarithm of the number<br>
+              at the top of the stack
+            </td>
+          </tr>
+          <tr>
+            <td>
+              [1]&gt;log
+            </td>
+            <td>
+              log base-10
+            </td>
+          </tr>
+          <tr>
+            <td>
+              [2.1022e-1024]&gt;round
+            </td>
+            <td>
+              round the number at the top of the stack
+            </td>
+          </tr>
+          <tr>
+            <td>
+              [0]&gt;2&#x21a9;256&#x21a9;^&#x21a9;
+            </td>
+            <td>
+              raise 2 to the power of 256 (postfix notation)
+            </td>
+          </tr>
+          <tr>
+            <td>
+              [0   1.15792e+77]&gt;clear
+            </td>
+            <td>
+              empty the stack
+            </td>
+          </tr>
+          <tr>
+            <td>
+              []&gt;2^256
+            </td>
+            <td>
+              raise 2 to the power of 256 (infix notation)
+            </td>
+          </tr>
+          <tr>
+            <td>
+              [1.15792e+77]&gt;dec
+            </td>
+            <td>
+              reveal the full precision result
+            </td>
+          </tr>
+          <tr>
+            <td>
+              [1157920892373<br>
+              1619542357098<br>
+              5008687907853<br>
+              2699846656405<br>
+              6403945758400<br>
+              7913129639936]&gt;eng
+            </td>
+            <td>
+              return to engineering notation
+            </td>
+          </tr>
+          <tr>
+            <td>
+              [1.15792e+77]&gt;10000!
+            </td>
+            <td>
+              10000 factorial, this may take a moment,<br>
+              you'll see an animation to tell you it's
+              working
+            </td>
+          </tr>
+          <tr>
+            <td>
+              [1.15792e+77   2.84626e+35659]&gt;
+            </td>
+            <td></td>
+          </tr>
+          </tbody>
+        </table>
+      </p>
+      <p>
+        That should give you a rough idea of how to use the
+        calculator. The following is a comprehensive list of
+        the operations. The infix column tells you whether
+        you can use that operation in an infix expression.
+        The postfix column telling you whether you can push
+        that symbol directly onto the stack. Some operations
+        operate on a single parameter. Others operate on two
+        parameters. A smaller number means higher precedence
+        for infix operators.
+      </p>
+      <p>
+        <table border="1">
+          <caption>Reference</caption>
+          <thead>
+            <tr>
+              <th>
+                operator
+              </th>
+              <th>
+                meaning
+              </th>
+              <th>
+                operands
+              </th>
+              <th>
+                results
+              </th>
+              <th>
+                infix
+              </th>
+              <th>
+                postfix
+              </th>
+              <th>
+                infix<br>precedence<br>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+          <tr><td>&lt;&lt;</td><td>left shift</td><td>2</td><td>1</td><td>yes</td><td>yes</td><td>5</td></tr>
+          <tr><td>&gt;&gt;</td><td>right shift</td><td>2</td><td>1</td><td>yes</td><td>yes</td><td>5</td></tr>
+          <tr><td>+</td><td>add</td><td>2</td><td>1</td><td>yes</td><td>yes</td><td>4</td></tr>
+          <tr><td>-</td><td>subtract</td><td>2</td><td>1</td><td>yes</td><td>yes</td><td>4</td></tr>
+          <tr><td>*</td><td>multiply</td><td>2</td><td>1</td><td>yes</td><td>yes</td><td>3</td></tr>
+          <tr><td>/</td><td>divide</td><td>2</td><td>1</td><td>yes</td><td>yes</td><td>3</td></tr>
+          <tr><td>%</td><td>modulo</td><td>2</td><td>1</td><td>yes</td><td>yes</td><td>3</td></tr>
+          <tr><td>^</td><td>exponentiation</td><td>2</td><td>1</td><td>yes</td><td>yes</td><td>2</td></tr>
+          <tr><td>-</td><td>unary negation</td><td>1</td><td>1</td><td>yes</td><td>yes</td><td>1</td></tr>
+          <tr><td>!</td><td>factorial</td><td>1</td><td>1</td><td>yes</td><td>yes</td><td>0</td></tr>
+          <tr><td>++</td><td>increment</td><td>1</td><td>1</td><td>no</td><td>yes</td><td></td></tr>
+          <tr><td>--</td><td>decrement</td><td>1</td><td>1</td><td>no</td><td>yes</td><td></td></tr>
+          <tr><td>abs</td><td>absolute value</td><td>1</td><td>1</td><td>no</td><td>yes</td><td></td></tr>
+          <tr><td>acos</td><td>arccos</td><td>1</td><td>1</td><td>no</td><td>yes</td><td></td></tr>
+          <tr><td>asin</td><td>arcsin</td><td>1</td><td>1</td><td>no</td><td>yes</td><td></td></tr>
+          <tr><td>atan</td><td>arctan</td><td>1</td><td>1</td><td>no</td><td>yes</td><td></td></tr>
+          <tr><td>atan2</td><td>arctan2</td><td>2</td><td>1</td><td>no</td><td>yes</td><td></td></tr>
+          <tr><td>avg</td><td>average the numbers on the stack</td><td>all</td><td>1</td><td>no</td><td>yes</td><td></td></tr>
+          <tr><td>bin</td><td>switch to binary display</td><td>0</td><td>0</td><td>no</td><td>yes</td><td></td></tr>
+          <tr><td>ceil</td><td>ceiling function</td><td>1</td><td>1</td><td>no</td><td>yes</td><td></td></tr>
+          <tr><td>clear</td><td>clear the stack</td><td>all</td><td>0</td><td>no</td><td>yes</td><td></td></tr>
+          <tr><td>clr</td><td>clear the stack</td><td>all</td><td>0</td><td>no</td><td>yes</td><td></td></tr>
+          <tr><td>copy</td><td>copy the stack to the clipboard</td><td>0</td><td>0</td><td>no</td><td>yes</td><td></td></tr>
+          <tr><td>cos</td><td>cosine</td><td>1</td><td>1</td><td>no</td><td>yes</td><td></td></tr>
+          <tr><td>cosh</td><td>hyperbolic cosine</td><td>1</td><td>1</td><td>no</td><td>yes</td><td></td></tr>
+          <tr><td>dec</td><td>return to full decimal display</td><td>0</td><td>0</td><td>no</td><td>yes</td><td></td></tr>
+          <tr><td>e</td><td>Euler's Number</td><td>0</td><td>1</td><td>yes</td><td>yes</td><td>0</td></tr>
+          <tr><td>exp</td><td>e^x</td><td>1</td><td>1</td><td>no</td><td>yes</td><td></td></tr>
+          <tr><td>eng</td><td>switch to engineering notation</td><td>0</td><td>0</td><td>no</td><td>yes</td><td></td></tr>
+          <tr><td>floor</td><td>largest integer not greater than</td><td>1</td><td>1</td><td>no</td><td>yes</td><td></td></tr>
+          <tr><td>frexp</td><td>yields [x y] where x*2^y = the input</td><td>1</td><td>2</td><td>no</td><td>yes</td><td></td></tr>
+          <tr><td>help</td><td>display the manual</td><td>0</td><td>0</td><td>no</td><td>yes</td><td></td></tr>
+          <tr><td>hex</td><td>switch to hexadecimal display</td><td>0</td><td>0</td><td>no</td><td>yes</td><td></td></tr>
+          <tr><td>log</td><td>log base-10</td><td>1</td><td>1</td><td>no</td><td>yes</td><td></td></tr>
+          <tr><td>ln</td><td>natural logarithm</td><td>1</td><td>1</td><td>no</td><td>yes</td><td></td></tr>
+          <tr><td>neg</td><td>negate</td><td>1</td><td>1</td><td>no</td><td>yes</td><td></td></tr>
+          <tr><td>oct</td><td>switch to octal display</td><td>0</td><td>0</td><td>no</td><td>yes</td><td></td></tr>
+          <tr><td>pi</td><td>&pi;</td><td>0</td><td>1</td><td>yes</td><td>yes</td><td>0</td><td></td></tr>
+          <tr><td>pop</td><td>remove the top value from the<br>stack (you can also press delete)</td><td>1</td><td>0</td><td>no</td><td>yes</td><td></td></tr>
+          <tr><td>round</td><td>round away from zero</td><td>1</td><td>1</td><td>no</td><td>yes</td><td></td></tr>
+          <tr><td>sin</td><td>sine</td><td>1</td><td>1</td><td>no</td><td>yes</td><td></td></tr>
+          <tr><td>sinh</td><td>hyperbolic sine</td><td>1</td><td>1</td><td>no</td><td>yes</td><td></td></tr>
+          <tr><td>sqrt</td><td>square root</td><td>1</td><td>1</td><td>no</td><td>yes</td><td></td></tr>
+          <tr><td>stddev</td><td>stddev of the numbers on the stack</td><td>all</td><td>1</td><td>no</td><td>yes</td><td></td></tr>
+          <tr><td>sum</td><td>sum the numbers on the stack</td><td>all</td><td>1</td><td>no</td><td>yes</td><td></td></tr>
+          <tr><td>swap</td><td>swap the top two stack elements</td><td>2</td><td>2</td><td>no</td><td>yes</td><td></td></tr>
+          <tr><td>tan</td><td>tangent</td><td>1</td><td>1</td><td>no</td><td>yes</td><td></td></tr>
+          <tr><td>tanh</td><td>hyperbolic tangent</td><td>1</td><td>1</td><td>no</td><td>yes</td><td></td></tr>
+          <tr><td>trunc</td><td>round toward zero</td><td>1</td><td>1</td><td>no</td><td>yes</td><td></td></tr>
+          </tbody>
+        </table>
+      </p>
+      <p>
+        In addition to the above, [Man Calc]&gt; supports
+        parentheses for adjusting order of operations,
+        hexadecimal (0xbabecafe), octal (0o777), and binary
+        (0b1010101) literals. Hex numbers can begin with
+        '0x', 'x', '0h', or 'h'. Octal numbers can begin with
+        '0o' or 'o'. Binary numbers can begin with '0b' or
+        'b.
+      </p>
+      <p>
+        The 'hex', 'oct', and 'bin' display modes only
+        display the integral part of the number in the
+        chosen base. The full precision is kept internally.
+        Return to normal display of the full precision with
+        'dec' or 'eng'. If the number is too large to
+        display in the chosen base, it will display as 'dec'
+        would display it. This generally happens when 'dec'
+        already displays the number in engineering notation.
+      </p>
+      <p>
+        Long running operations which display the animation can generally be
+        stopped by pressing delete.
+      </p>
+      <p>
+        For support questions, please contact
+        <a href="https://github.com/recalcitrantsoftware/">
+          the developer
+        </a>
+      </p>
+    </center>
+  </body>
+</html>
+<!--
+vim:tw=60:
+-->
