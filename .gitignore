@@ -3,5 +3,5 @@ libtestables.a
 .*.d
 .test-*
 .*.sh
-engine
+mancalc
 cscope.*
