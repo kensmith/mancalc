@@ -349,19 +349,6 @@ TEST(test_atan2)
    CL(0.46364760900081, p.top(), 1e-9);
 }
 
-TEST(googol_but_not_googolplex)
-{
-   postfix_t p;
-   p.push(10);
-   p.push(100);
-   p.push("^");
-   EQ(101, p.top().str().size());
-   p.push(10);
-   p.push("swap");
-   p.push("^");
-   EQ("inf", p.top().str());
-}
-
 TEST(stringize)
 {
    postfix_t p;
