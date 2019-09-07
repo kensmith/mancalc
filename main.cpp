@@ -12,9 +12,9 @@ int main()
    while (true)
    {
       std::cout
-         << "["
+         << "[ "
          << p
-         << "]>";
+         << " ]>";
 
       std::getline(std::cin, buf);
       if (std::cin.eof())
