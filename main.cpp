@@ -9,6 +9,7 @@ int main()
    std::string last_expression;
    postfix_t p;
    infix_t infix(p);
+   p.push("eng");
    while (true)
    {
       std::cout
