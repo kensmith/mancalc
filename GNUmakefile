@@ -33,13 +33,8 @@ pd := .postdepend.sh
  $(o)
 
 $(prog)\
-:.main.o $(addsuffix .passed,$(t)) libtestables.a\
-;$(l) -o $@ $< -L. -ltestables
-
-libtestables.a\
-:$(filter-out .main%,$(p))\
-;ar r $@ $^\
-&&ranlib $@
+:.main.o $(addsuffix .passed,$(t))\
+;$(l) -o $@ $<
 
 .test-%.o\
 :test-%.cpp $(MAKEFILE_LIST) $(pd)\
@@ -83,8 +78,8 @@ libtestables.a\
 ;exit $$$(subst -,_,$(subst .,_,$@))
 
 .test-%\
-:.test-%.o libtestables.a\
-;$(l) -o $@ $< -lboost_unit_test_framework -L . -ltestables
+:.test-%.o\
+;$(l) -o $@ $< -lboost_unit_test_framework
 
 .PHONY\
 :clean\
@@ -96,7 +91,7 @@ install\
 
 clean\
 :\
-;rm -Rf $(prog) .test-* .*.o .*.d .*.passed html latex .postdepend.sh libtestables.a
+;rm -Rf $(prog) .test-* .*.o .*.d .*.passed html latex .postdepend.sh
 
 .postdepend.sh\
 :$(MAKEFILE_LIST)\
