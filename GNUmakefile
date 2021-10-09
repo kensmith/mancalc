@@ -11,6 +11,7 @@ opt := -Os -flto
 # Implementation
 prog ?= $(notdir $(CURDIR))
 MAKEFLAGS := j$(cpus)
+SHELL := bash
 g := g++ $(opt) $(debug)
 g += -std=c++11
 g += -Wall -Werror -pedantic -Wno-unused-local-typedefs
