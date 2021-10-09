@@ -708,6 +708,16 @@ private:
          }
       },
       {
+         "frac",
+         [](postfix_t& p)
+         {
+            ensure(p.can_uop());
+            num_t rhs = p.pop();
+            num_t result = rhs - trunc(rhs);
+            p.push(result);
+         }
+      },
+      {
          "frexp",
          [](postfix_t& p)
          {

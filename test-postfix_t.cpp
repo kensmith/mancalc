@@ -228,6 +228,14 @@ TEST(test_round)
    EQ(2, p.top());
 }
 
+TEST(test_frac)
+{
+  postfix_t p;
+  p.push(123.456);
+  p.push("frac");
+  CL(p.top(), 0.456, 0.0001);
+}
+
 TEST(test_frexp)
 {
    postfix_t p;
