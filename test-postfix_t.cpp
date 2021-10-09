@@ -266,7 +266,6 @@ TEST(test_cos)
    p.push(2);
    p.push("/");
    p.push("cos");
-   ooo(eee) << p.top();
    LT(p.top(), 1e-100);
 }
 
