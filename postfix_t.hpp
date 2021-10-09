@@ -616,6 +616,13 @@ private:
          }
       },
       {
+        "c",
+        [](postfix_t& p)
+        {
+          p.push(299792458);
+        }
+      },
+      {
          "ceil",
          [](postfix_t& p)
          {

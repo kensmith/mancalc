@@ -196,6 +196,13 @@ TEST(test_floor)
    EQ(123, p.top());
 }
 
+TEST(test_c)
+{
+  postfix_t p;
+  p.push("c");
+  EQ(299792458, p.top());
+}
+
 TEST(test_ceil)
 {
    postfix_t p;
