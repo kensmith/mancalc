@@ -805,6 +805,16 @@ private:
          }
       },
       {
+         "kgp",
+         [](postfix_t& p)
+         {
+            ensure(p.can_uop());
+            num_t rhs = p.pop();
+            num_t result = rhs / pounds_in_one_kilogram;
+            p.push(result);
+         }
+      },
+      {
          "lg",
          [](postfix_t& p)
          {
@@ -859,6 +869,16 @@ private:
          [](postfix_t& p)
          {
             p.display_type(display_types_t::oct);
+         }
+      },
+      {
+         "pkg",
+         [](postfix_t& p)
+         {
+            ensure(p.can_uop());
+            num_t rhs = p.pop();
+            num_t result = rhs * pounds_in_one_kilogram;
+            p.push(result);
          }
       },
       {

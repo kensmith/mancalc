@@ -176,6 +176,14 @@ TEST(test_jfp)
    CL(2212.686, p.top(), 0.0001);
 }
 
+TEST(test_kgp)
+{
+   postfix_t p;
+   p.push(100);
+   p.push("kgp");
+   CL(220.462, p.top(), 0.001);
+}
+
 TEST(test_lg)
 {
    postfix_t p;
@@ -550,6 +558,14 @@ TEST(sum_list)
    }
    p.push("sum");
    EQ(55, p.top());
+}
+
+TEST(test_pkg)
+{
+   postfix_t p;
+   p.push(100);
+   p.push("pkg");
+   CL(45.3592, p.top(), 0.0001);
 }
 
 TEST(prod_list)
