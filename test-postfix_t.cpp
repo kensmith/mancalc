@@ -168,6 +168,14 @@ TEST(pretty_sqrts)
       0.0000000000000000000000000000000000001);
 }
 
+TEST(test_jfp)
+{
+   postfix_t p;
+   p.push(3000);
+   p.push("jfp");
+   CL(2212.686, p.top(), 0.0001);
+}
+
 TEST(logarithms)
 {
    postfix_t p;
@@ -255,6 +263,14 @@ TEST(test_round)
    p.push(1.5);
    p.push("round");
    EQ(2, p.top());
+}
+
+TEST(test_fpj)
+{
+   postfix_t p;
+   p.push(3000);
+   p.push("fpj");
+   CL(4067.454, p.top(), 0.0001);
 }
 
 TEST(test_frac)

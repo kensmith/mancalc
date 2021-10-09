@@ -736,6 +736,16 @@ private:
          }
       },
       {
+         "fpj",
+         [](postfix_t& p)
+         {
+            ensure(p.can_uop());
+            num_t rhs = p.pop();
+            num_t result = rhs * joules_in_one_foot_pound;
+            p.push(result);
+         }
+      },
+      {
          "frac",
          [](postfix_t& p)
          {
@@ -772,6 +782,16 @@ private:
          [](postfix_t& p)
          {
             p.display_type(display_types_t::hex);
+         }
+      },
+      {
+         "jfp",
+         [](postfix_t& p)
+         {
+            ensure(p.can_uop());
+            num_t rhs = p.pop();
+            num_t result = rhs / joules_in_one_foot_pound;
+            p.push(result);
          }
       },
       {
