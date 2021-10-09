@@ -38,7 +38,8 @@ $(prog)\
 
 libtestables.a\
 :$(filter-out .main%,$(p))\
-;ar r $@ $^
+;ar r $@ $^\
+&&ranlib $@
 
 .test-%.o\
 :test-%.cpp $(MAKEFILE_LIST) $(pd)\
