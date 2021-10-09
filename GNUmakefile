@@ -63,7 +63,7 @@ libtestables.a\
 # I want to be able to single step the rule generation as
 # well as the rule execution
 .%.o\
-:%.cpp $(MAKEFILE_LIST)\
+:%.cpp $(MAKEFILE_LIST) $(pd)\
 ;$(c) -o $@ $<\
 ;export $(subst -,_,$(subst .,_,$@))=$$?\
 ;if [[ "$$$(subst -,_,$(subst .,_,$@))" == "0" ]]\
