@@ -176,6 +176,14 @@ TEST(test_jfp)
    CL(2212.686, p.top(), 0.0001);
 }
 
+TEST(test_lg)
+{
+   postfix_t p;
+   p.push(1000);
+   p.push("lg");
+   CL(264.172, p.top(), 0.0001);
+}
+
 TEST(logarithms)
 {
    postfix_t p;
@@ -494,6 +502,14 @@ TEST(test_ftm)
    p.push(60);
    p.push("ftm");
    CL(18.288, p.top(), 0.0001);
+}
+
+TEST(test_gl)
+{
+   postfix_t p;
+   p.push(450);
+   p.push("gl");
+   CL(1703.44, p.top(), 0.001);
 }
 
 TEST(hexadecimal)

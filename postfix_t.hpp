@@ -778,6 +778,16 @@ private:
          }
       },
       {
+         "gl",
+         [](postfix_t& p)
+         {
+            ensure(p.can_uop());
+            num_t rhs = p.pop();
+            num_t result = rhs * liters_in_one_gallon;
+            p.push(result);
+         }
+      },
+      {
          "hex",
          [](postfix_t& p)
          {
@@ -791,6 +801,16 @@ private:
             ensure(p.can_uop());
             num_t rhs = p.pop();
             num_t result = rhs / joules_in_one_foot_pound;
+            p.push(result);
+         }
+      },
+      {
+         "lg",
+         [](postfix_t& p)
+         {
+            ensure(p.can_uop());
+            num_t rhs = p.top();
+            num_t result = rhs / liters_in_one_gallon;
             p.push(result);
          }
       },
