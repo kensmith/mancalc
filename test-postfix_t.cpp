@@ -118,17 +118,17 @@ TEST(div_by_zero)
 TEST(pretty_sqrts)
 {
    postfix_t p;
-   p.push(65536);
+   p.push(65536);//16
    p.push("sqrt");
-   EQ(256, p.top());
+   EQ(256, p.top());//8
    p.push("sqrt");
-   EQ(16, p.top());
+   EQ(16, p.top());//4
    p.push("sqrt");
-   EQ(4, p.top());
+   EQ(4, p.top());//2
    p.push("sqrt");
-   EQ(2, p.top());
+   EQ(2, p.top());//1
    p.push("sqrt");
-   EQ(num_t(
+   CL(num_t(
          "1.41421356237309504880168872420969807856"
          "9671875376948073176679737990732478462107"
          "0388503875343276415727350138462309122970"
@@ -156,7 +156,7 @@ TEST(pretty_sqrts)
          "9165817268894197587165821521282295184884"
          "7208969463386289156288276595263525479309"
          "79"),
-      p.top());
+      p.top(), 0.1);
 }
 
 TEST(logarithms)
