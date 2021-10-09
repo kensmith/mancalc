@@ -168,6 +168,14 @@ TEST(pretty_sqrts)
       0.0000000000000000000000000000000000001);
 }
 
+TEST(test_hpw)
+{
+   postfix_t p;
+   p.push(1000);
+   p.push("hpw");
+   CL(745700, p.top(), 0.1);
+}
+
 TEST(test_jfp)
 {
    postfix_t p;
@@ -268,6 +276,14 @@ TEST(test_trunc)
    p.push(-123.456);
    p.push("trunc");
    EQ(-123, p.top());
+}
+
+TEST(test_whp)
+{
+   postfix_t p;
+   p.push(100000);
+   p.push("whp");
+   CL(134.10221, p.top(), 0.00001);
 }
 
 TEST(test_round)

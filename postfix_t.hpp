@@ -795,6 +795,16 @@ private:
          }
       },
       {
+         "hpw",
+         [](postfix_t& p)
+         {
+            ensure(p.can_uop());
+            num_t rhs = p.pop();
+            num_t result = rhs * watts_in_one_horsepower;
+            p.push(result);
+         }
+      },
+      {
          "jfp",
          [](postfix_t& p)
          {
@@ -1024,6 +1034,16 @@ private:
             ensure(p.can_uop());
             num_t rhs = p.pop();
             num_t result = trunc(rhs);
+            p.push(result);
+         }
+      },
+      {
+         "whp",
+         [](postfix_t& p)
+         {
+            ensure(p.can_uop());
+            num_t rhs = p.pop();
+            num_t result = rhs / watts_in_one_horsepower;
             p.push(result);
          }
       },
