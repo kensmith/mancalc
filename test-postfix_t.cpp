@@ -26,6 +26,14 @@ TEST(bigger_add)
       postfix.top());
 }
 
+TEST(test_mft)
+{
+   postfix_t postfix;
+   postfix.push(20);
+   postfix.push("mft");
+   CL(65.6168, postfix.top(), 0.00001);
+}
+
 TEST(basic_negate)
 {
    postfix_t postfix;
@@ -462,6 +470,14 @@ TEST(case_insensitivity)
    p.push("PI");
    p.push("COS");
    EQ(-1, p.top());
+}
+
+TEST(test_ftm)
+{
+   postfix_t p;
+   p.push(60);
+   p.push("ftm");
+   CL(18.288, p.top(), 0.0001);
 }
 
 TEST(hexadecimal)

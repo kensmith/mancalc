@@ -17,6 +17,7 @@
 #include "bin_printer_t.hpp"
 #include "oct_printer_t.hpp"
 #include "commaifier_t.hpp"
+#include "constants.hpp"
 
 /**
  * A postfix calculation engine.
@@ -616,11 +617,11 @@ private:
          }
       },
       {
-        "c",
-        [](postfix_t& p)
-        {
-          p.push(299792458);
-        }
+         "c",
+         [](postfix_t& p)
+         {
+           p.push(299792458);
+         }
       },
       {
          "ceil",
@@ -633,13 +634,14 @@ private:
          }
       },
       {
-        "cf",
-        [](postfix_t& p)
-        {
-          num_t rhs = p.pop();
-          num_t result = (rhs * 9 / 5) + 32;
-          p.push(result);
-        }
+         "cf",
+         [](postfix_t& p)
+         {
+           ensure(p.can_uop());
+           num_t rhs = p.pop();
+           num_t result = (rhs * 9 / 5) + 32;
+           p.push(result);
+         }
       },
       {
          "clear",
@@ -714,13 +716,14 @@ private:
          }
       },
       {
-        "fc",
-        [](postfix_t& p)
-        {
-          num_t rhs = p.pop();
-          num_t result = (rhs - 32) * 5 / 9;
-          p.push(result);
-        }
+         "fc",
+         [](postfix_t& p)
+         {
+           ensure(p.can_uop());
+           num_t rhs = p.pop();
+           num_t result = (rhs - 32) * 5 / 9;
+           p.push(result);
+         }
       },
       {
          "floor",
@@ -755,6 +758,16 @@ private:
          }
       },
       {
+         "ftm",
+         [](postfix_t& p)
+         {
+            ensure(p.can_uop());
+            num_t rhs = p.pop();
+            num_t result = rhs / feet_in_one_meter;
+            p.push(result);
+         }
+      },
+      {
          "hex",
          [](postfix_t& p)
          {
@@ -778,6 +791,16 @@ private:
             ensure(p.can_uop());
             num_t rhs = p.pop();
             num_t result = log(rhs);
+            p.push(result);
+         }
+      },
+      {
+         "mft",
+         [](postfix_t& p)
+         {
+            ensure(p.can_uop());
+            num_t rhs = p.pop();
+            num_t result = rhs * feet_in_one_meter;
             p.push(result);
          }
       },
