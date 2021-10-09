@@ -187,6 +187,20 @@ TEST(test_abs_val)
    EQ(10, p.top());
 }
 
+TEST(test_fc)
+{
+  postfix_t p;
+  p.push(50);
+  p.push("fc");
+  EQ(10, p.top());
+  p.push(68);
+  p.push("fc");
+  EQ(20, p.top());
+  p.push(86);
+  p.push("fc");
+  EQ(30, p.top());
+}
+
 TEST(test_floor)
 {
    postfix_t p;
@@ -382,6 +396,20 @@ TEST(engineering_notation)
    p.push("pi");
    p.push("eng");
    EQ("2.71828   3.14159", p.str());
+}
+
+TEST(test_cf)
+{
+  postfix_t p;
+  p.push(10);
+  p.push("cf");
+  EQ(50, p.top());
+  p.push(20);
+  p.push("cf");
+  EQ(68, p.top());
+  p.push(30);
+  p.push("cf");
+  EQ(86, p.top());
 }
 
 TEST(clear_stack)

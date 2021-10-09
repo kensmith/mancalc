@@ -633,6 +633,15 @@ private:
          }
       },
       {
+        "cf",
+        [](postfix_t& p)
+        {
+          num_t rhs = p.pop();
+          num_t result = (rhs * 9 / 5) + 32;
+          p.push(result);
+        }
+      },
+      {
          "clear",
          [](postfix_t& p)
          {
@@ -703,6 +712,15 @@ private:
          {
             p.display_type(display_types_t::eng);
          }
+      },
+      {
+        "fc",
+        [](postfix_t& p)
+        {
+          num_t rhs = p.pop();
+          num_t result = (rhs - 32) * 5 / 9;
+          p.push(result);
+        }
       },
       {
          "floor",
