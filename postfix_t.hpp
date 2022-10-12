@@ -647,6 +647,12 @@ private:
         "past",
         [](postfix_t& p)
         {
+          if (p.top() < 126)
+          {
+            p.pop();
+            p.push("inf");
+            return;
+          }
           // equation derived from curve fit of data
           ensure(p.can_uop());
           p.push("-0.231");

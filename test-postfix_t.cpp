@@ -476,21 +476,30 @@ TEST(test_past)
   p.push(126);
   p.push("past");
   CL(281, p.top(), 1); // 281 minutes to pasteurize at 126
+
   p.push(130);
   p.push("past");
   CL(112, p.top(), 1);
+
   p.push(135);
   p.push("past");
   CL(35, p.top(), 1);
+
   p.push(140);
   p.push("past");
   CL(11, p.top(), 1);
+
   p.push(145);
   p.push("past");
   CL(3.49, p.top(), 1);
+
   p.push(160);
   p.push("past");
   CL(0.109, p.top(), 1);
+
+  p.push(125);
+  p.push("past");
+  EQ("inf", p.top().str());
 }
 
 TEST(clear_stack)
