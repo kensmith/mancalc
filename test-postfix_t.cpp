@@ -468,6 +468,30 @@ TEST(test_cf)
   EQ(86, p.top());
 }
 
+TEST(test_past)
+{
+  // minutes to pasteurize for t in fahrenheit
+  postfix_t p;
+  p.push(126);
+  p.push("past");
+  CL(281, p.top(), 1); // 281 minutes to pasteurize at 126
+  p.push(130);
+  p.push("past");
+  CL(112, p.top(), 1);
+  p.push(135);
+  p.push("past");
+  CL(35, p.top(), 1);
+  p.push(140);
+  p.push("past");
+  CL(11, p.top(), 1);
+  p.push(145);
+  p.push("past");
+  CL(3.49, p.top(), 1);
+  p.push(160);
+  p.push("past");
+  CL(0.109, p.top(), 1);
+}
+
 TEST(clear_stack)
 {
    postfix_t p;

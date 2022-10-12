@@ -644,6 +644,21 @@ private:
          }
       },
       {
+        "past",
+        [](postfix_t& p)
+        {
+          // equation derived from curve fit of data
+          ensure(p.can_uop());
+          p.push("-0.231");
+          p.push("*");
+          p.push("e");
+          p.push("swap");
+          p.push("^");
+          p.push("1.23e15");
+          p.push("*");
+        }
+      },
+      {
          "clear",
          [](postfix_t& p)
          {
