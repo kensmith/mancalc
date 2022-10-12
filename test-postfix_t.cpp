@@ -26,11 +26,11 @@ TEST(bigger_add)
       postfix.top());
 }
 
-TEST(test_mft)
+TEST(test_mf)
 {
    postfix_t postfix;
    postfix.push(20);
-   postfix.push("mft");
+   postfix.push("mf");
    CL(65.6168, postfix.top(), 0.00001);
 }
 
@@ -168,27 +168,27 @@ TEST(pretty_sqrts)
       0.0000000000000000000000000000000000001);
 }
 
-TEST(test_hpw)
+TEST(test_hw)
 {
    postfix_t p;
    p.push(1000);
-   p.push("hpw");
+   p.push("hw");
    CL(745700, p.top(), 0.1);
 }
 
-TEST(test_jfp)
+TEST(test_jf)
 {
    postfix_t p;
    p.push(3000);
-   p.push("jfp");
+   p.push("jf");
    CL(2212.686, p.top(), 0.0001);
 }
 
-TEST(test_kgp)
+TEST(test_kp)
 {
    postfix_t p;
    p.push(100);
-   p.push("kgp");
+   p.push("kp");
    CL(220.462, p.top(), 0.001);
 }
 
@@ -278,11 +278,11 @@ TEST(test_trunc)
    EQ(-123, p.top());
 }
 
-TEST(test_whp)
+TEST(test_wh)
 {
    postfix_t p;
    p.push(100000);
-   p.push("whp");
+   p.push("wh");
    CL(134.10221, p.top(), 0.00001);
 }
 
@@ -297,11 +297,11 @@ TEST(test_round)
    EQ(2, p.top());
 }
 
-TEST(test_fpj)
+TEST(test_fj)
 {
    postfix_t p;
    p.push(3000);
-   p.push("fpj");
+   p.push("fj");
    CL(4067.454, p.top(), 0.0001);
 }
 
@@ -471,6 +471,7 @@ TEST(test_cf)
 TEST(test_past)
 {
   // minutes to pasteurize for t in fahrenheit
+  // no guarantees for safety, use your own judgement
   postfix_t p;
   p.push(126);
   p.push("past");
@@ -544,11 +545,11 @@ TEST(case_insensitivity)
    EQ(-1, p.top());
 }
 
-TEST(test_ftm)
+TEST(test_fm)
 {
    postfix_t p;
    p.push(60);
-   p.push("ftm");
+   p.push("fm");
    CL(18.288, p.top(), 0.0001);
 }
 
@@ -600,11 +601,11 @@ TEST(sum_list)
    EQ(55, p.top());
 }
 
-TEST(test_pkg)
+TEST(test_pk)
 {
    postfix_t p;
    p.push(100);
-   p.push("pkg");
+   p.push("pk");
    CL(45.3592, p.top(), 0.0001);
 }
 

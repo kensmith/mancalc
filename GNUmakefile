@@ -5,7 +5,7 @@
 # User configurable portion.
 prefix := /usr/local
 cpus := 4
-opt := -Os -flto
+opt := -Os -flto=auto
 #debug := -g -DDEBUG
 
 # Implementation

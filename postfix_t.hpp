@@ -751,7 +751,7 @@ private:
          }
       },
       {
-         "fpj",
+         "fj",
          [](postfix_t& p)
          {
             ensure(p.can_uop());
@@ -783,7 +783,7 @@ private:
          }
       },
       {
-         "ftm",
+         "fm",
          [](postfix_t& p)
          {
             ensure(p.can_uop());
@@ -810,7 +810,7 @@ private:
          }
       },
       {
-         "hpw",
+         "hw",
          [](postfix_t& p)
          {
             ensure(p.can_uop());
@@ -820,7 +820,7 @@ private:
          }
       },
       {
-         "jfp",
+         "jf",
          [](postfix_t& p)
          {
             ensure(p.can_uop());
@@ -830,7 +830,7 @@ private:
          }
       },
       {
-         "kgp",
+         "kp",
          [](postfix_t& p)
          {
             ensure(p.can_uop());
@@ -870,7 +870,7 @@ private:
          }
       },
       {
-         "mft",
+         "mf",
          [](postfix_t& p)
          {
             ensure(p.can_uop());
@@ -897,7 +897,7 @@ private:
          }
       },
       {
-         "pkg",
+         "pk",
          [](postfix_t& p)
          {
             ensure(p.can_uop());
@@ -1053,7 +1053,7 @@ private:
          }
       },
       {
-         "whp",
+         "wh",
          [](postfix_t& p)
          {
             ensure(p.can_uop());

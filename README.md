@@ -5,10 +5,10 @@ and postfix syntax.
 
 Unit conversion:
 * cf/fc, celsius - fahrenheit
-* mft/ftm, meters - feet
-* fpj/jfp, joules - foot pounds
+* mt/fm, meters - feet
+* fj/jf, joules - foot pounds
 * lg/gl, liters - gallons
-* kgp/pkg, kilograms - pounds
-* whp/hpw, watts - horsepower
+* kp/pk, kilograms - pounds
+* wh/hw, watts - horsepower
 
 vim:tw=60:
