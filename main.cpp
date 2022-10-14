@@ -15,7 +15,7 @@ int main()
       std::cout
          << "[ "
          << p
-         << " ]>";
+         << " ]> ";
 
       std::getline(std::cin, buf);
       if (std::cin.eof())
