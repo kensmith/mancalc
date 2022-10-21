@@ -120,6 +120,14 @@ struct postfix_t
    }
 
    /**
+    * @return true when we can apply a ternary operation.
+    */
+   bool can_top() const
+   {
+     return numbers_.size() >= 3;
+   }
+
+   /**
     * @return true when we can apply a binary operation.
     */
    bool can_bop() const
@@ -675,7 +683,7 @@ private:
          "clr",
          [](postfix_t& p)
          {
-            p.clear();
+            p.push("clear");
          }
       },
       {
@@ -950,6 +958,69 @@ private:
          }
       },
       {
+        "seq0",
+        [](postfix_t& p)
+        {
+          ensure(p.can_uop());
+          num_t rhs = p.pop();
+          for (num_t i = 0; i < rhs; ++i)
+          {
+            p.push(i);
+          }
+        }
+      },
+      {
+        "seq1",
+        [](postfix_t& p)
+        {
+          ensure(p.can_uop());
+          num_t rhs = p.pop();
+          for (num_t i = 1; i <= rhs; ++i)
+          {
+            p.push(i);
+          }
+        }
+      },
+      {
+        "seq2",
+        [](postfix_t& p)
+        {
+          ensure(p.can_bop());
+          num_t lhs = p.pop();
+          num_t rhs = p.pop();
+          if (lhs > rhs)
+          {
+            num_t tmp = lhs;
+            lhs = rhs;
+            rhs = tmp;
+          }
+          for (num_t i = lhs; i <= rhs; ++i)
+          {
+            p.push(i);
+          }
+        }
+      },
+      {
+        "seq3",
+        [](postfix_t& p)
+        {
+          ensure(p.can_top());
+          num_t lhs = p.pop();
+          num_t incr = p.pop();
+          num_t rhs = p.pop();
+          if (lhs > rhs)
+          {
+            num_t tmp = lhs;
+            lhs = rhs;
+            rhs = tmp;
+          }
+          for (num_t i = lhs; i <= rhs; i += incr)
+          {
+            p.push(i);
+          }
+        }
+      },
+      {
          "sin",
          [](postfix_t& p)
          {
@@ -1027,6 +1098,13 @@ private:
             p.push(rhs);
             p.push(lhs);
          }
+      },
+      {
+        "sw",
+        [](postfix_t& p)
+        {
+          p.push("swap");
+        }
       },
       {
          "tan",

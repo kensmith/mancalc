@@ -332,6 +332,60 @@ TEST(test_swap)
    p.push("swap");
    EQ(12, p.pop());
    EQ(34, p.top());
+
+   p.push("clr");
+   p.push(12);
+   p.push(34);
+   p.push("sw");
+   EQ(12, p.pop());
+   EQ(34, p.top());
+}
+
+TEST(test_seq0)
+{
+  postfix_t p;
+  p.push(10);
+  p.push("seq0");
+  for (int i = 9; i >= 0; --i)
+  {
+    EQ(i, p.pop());
+  }
+}
+
+TEST(test_seq1)
+{
+  postfix_t p;
+  p.push(10);
+  p.push("seq1");
+  for (int i = 10; i >= 1; --i)
+  {
+    EQ(i, p.pop());
+  }
+}
+
+TEST(test_seq2)
+{
+  postfix_t p;
+  p.push(15);
+  p.push(20);
+  p.push("seq2");
+  for (int i = 20; i >= 15; --i)
+  {
+    EQ(i, p.pop());
+  }
+}
+
+TEST(test_seq3)
+{
+  postfix_t p;
+  p.push(15);
+  p.push(0.5);
+  p.push(20);
+  p.push("seq3");
+  for (num_t i = 20; i >= 15; i -= 0.5)
+  {
+    CL(i, p.pop(), 1e-10);
+  }
 }
 
 TEST(test_mod_fun)
