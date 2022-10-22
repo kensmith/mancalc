@@ -35,7 +35,12 @@ struct postfix_t
     */
    void clear()
    {
-      numbers_.clear();
+      std::deque<num_t>().swap(numbers_);
+   }
+
+   void shrink_to_fit()
+   {
+      numbers_.shrink_to_fit();
    }
 
    /**

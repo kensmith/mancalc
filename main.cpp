@@ -12,6 +12,7 @@ int main()
    p.push("eng");
    while (true)
    {
+      p.shrink_to_fit();
       std::cout
          << "[ "
          << p
