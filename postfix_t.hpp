@@ -80,7 +80,9 @@ struct postfix_t
       catch (std::exception& e)
       {
          ooo(eee)
-            << "failed to push: "
+            << "'"
+            << op
+            << "' is an unimplemeted operator or an invalid number: "
             << e.what();
       }
    }
