@@ -608,6 +608,21 @@ private:
          }
       },
       {
+        "mov",
+        [](postfix_t& p)
+        {
+          ensure(p.can_top());
+          num_t distance_yds = p.pop();
+          num_t speed_mph = p.pop();
+          num_t tof_s = p.pop();
+          num_t speed_fps = speed_mph * 5280 / 3600;
+          num_t travel_f = tof_s * speed_fps;
+          num_t distance_f = distance_yds * 3;
+          num_t result = atan(travel_f / distance_f);
+          p.push(result);
+        }
+      },
+      {
          "avg",
          [](postfix_t& p)
          {

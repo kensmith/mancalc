@@ -489,6 +489,16 @@ TEST(test_atan2)
    CL(0.46364760900081, p.top(), 1e-9);
 }
 
+TEST(test_mov)
+{
+  postfix_t p;
+  p.push(0.526);
+  p.push(3);
+  p.push(420);
+  p.push("mov");
+  CL(0.0018368233310576488, p.top(), 1e-9);
+}
+
 TEST(stringize)
 {
    postfix_t p;
