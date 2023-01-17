@@ -618,7 +618,7 @@ private:
           num_t speed_fps = speed_mph * 5280 / 3600;
           num_t travel_f = tof_s * speed_fps;
           num_t distance_f = distance_yds * 3;
-          num_t result = atan(travel_f / distance_f);
+          num_t result = 1000*atan(travel_f / distance_f);
           p.push(result);
         }
       },

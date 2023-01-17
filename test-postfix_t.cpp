@@ -496,7 +496,7 @@ TEST(test_mov)
   p.push(3);
   p.push(420);
   p.push("mov");
-  CL(0.0018368233310576488, p.top(), 1e-9);
+  CL(1.8368233310576488, p.top(), 1e-9);
 }
 
 TEST(stringize)
