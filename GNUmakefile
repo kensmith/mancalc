@@ -3,7 +3,7 @@
 # Copyright Ken Smith kgsmith at gmail dot com, 2013.
 
 # User configurable portion.
-prefix := /usr/local
+prefix := $(HOME)/.local
 cpus := 4
 opt := -Os -flto=auto
 #debug := -g -DDEBUG
