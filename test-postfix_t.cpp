@@ -492,9 +492,9 @@ TEST(test_atan2)
 TEST(test_mov)
 {
   postfix_t p;
-  p.push(0.526);
-  p.push(3);
-  p.push(420);
+  p.push(420); // distance
+  p.push(3); // speed
+  p.push(0.526); // time of flight
   p.push("mov");
   CL(1.8368233310576488, p.top(), 1e-9);
 }
@@ -502,8 +502,8 @@ TEST(test_mov)
 TEST(test_vom)
 {
   postfix_t p;
-  p.push(425);
-  p.push(2.43);
+  p.push(425); // distance
+  p.push(2.43); // mrad / s
   p.push("vom");
   CL(2.1124473397499175, p.top(), 1e-9);
 }
