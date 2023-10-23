@@ -499,6 +499,15 @@ TEST(test_mov)
   CL(1.8368233310576488, p.top(), 1e-9);
 }
 
+TEST(test_vom)
+{
+  postfix_t p;
+  p.push(425);
+  p.push(2.43);
+  p.push("vom");
+  CL(2.1124473397499175, p.top(), 1e-9);
+}
+
 TEST(stringize)
 {
    postfix_t p;

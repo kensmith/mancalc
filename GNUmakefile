@@ -13,7 +13,7 @@ prog ?= $(notdir $(CURDIR))
 MAKEFLAGS := j$(cpus)
 SHELL := bash
 g := g++ $(opt) $(debug)
-g += -std=c++14
+g += -std=c++17
 g += -Wall -Werror -pedantic -Wno-unused-local-typedefs
 g := $(strip $(g))
 c := $(g) -c -MMD -I . -I ..
