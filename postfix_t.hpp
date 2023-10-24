@@ -610,7 +610,7 @@ private:
          }
       },
       {
-        "mov",
+        "mil",
         [](postfix_t& p)
         {
           if (!p.can_bop())
@@ -629,7 +629,7 @@ private:
         }
       },
       {
-        "vom",
+        "mph",
         [](postfix_t& p)
         {
           if (!p.can_bop())

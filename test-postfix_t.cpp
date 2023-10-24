@@ -489,21 +489,21 @@ TEST(test_atan2)
    CL(0.46364760900081, p.top(), 1e-9);
 }
 
-TEST(test_mov)
+TEST(test_mil)
 {
   postfix_t p;
   p.push(420); // distance
   p.push(3); // speed
-  p.push("mov");
+  p.push("mil");
   CL(3.4920492975026125, p.top(), 1e-9);
 }
 
-TEST(test_vom)
+TEST(test_mph)
 {
   postfix_t p;
   p.push(425); // distance
   p.push(2.43); // mrad / s
-  p.push("vom");
+  p.push("mph");
   CL(2.1124473397499175, p.top(), 1e-9);
 }
 
