@@ -613,22 +613,32 @@ private:
         "mov",
         [](postfix_t& p)
         {
-          ensure(p.can_top());
-          num_t tof_s = p.pop();
+          if (!p.can_bop())
+          {
+            ooo(eee) << "push distance yds";
+            ooo(eee) << "push speed mph";
+            ooo(eee) << "returns mils/s";
+            return;
+          }
+          ensure(p.can_bop());
           num_t speed_mph = p.pop();
           num_t distance_yds = p.pop();
-          num_t speed_fps = speed_mph * 5280 / 3600;
-          num_t travel_f = tof_s * speed_fps;
-          num_t distance_f = distance_yds * 3;
-          num_t result = 1000*atan(travel_f / distance_f);
-          p.push(result);
+          num_t speed_yps = speed_mph * 1760 / 3600;
+          num_t mrads_per_s = 1000*atan(speed_yps / distance_yds);
+          p.push(mrads_per_s);
         }
       },
       {
         "vom",
         [](postfix_t& p)
         {
-          ensure(p.can_bop());
+          if (!p.can_bop())
+          {
+            ooo(eee) << "push distance yds";
+            ooo(eee) << "push speed mils/s";
+            ooo(eee) << "returns mph";
+            return;
+          }
           num_t mrads_per_second = p.pop();
           num_t distance_yds = p.pop();
           num_t distance_ft = 3.0 * distance_yds;

@@ -494,9 +494,8 @@ TEST(test_mov)
   postfix_t p;
   p.push(420); // distance
   p.push(3); // speed
-  p.push(0.526); // time of flight
   p.push("mov");
-  CL(1.8368233310576488, p.top(), 1e-9);
+  CL(3.4920492975026125, p.top(), 1e-9);
 }
 
 TEST(test_vom)
