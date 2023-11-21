@@ -648,6 +648,33 @@ private:
         }
       },
       {
+        // lorentz factor, gamma
+        "gam",
+        [](postfix_t& p)
+        {
+          ensure(p.can_uop());
+          p.push(2);
+          p.push("^"); // v^2
+
+          p.push("c");
+          p.push(2);
+          p.push("^"); // c^2
+
+          p.push("/");
+
+          p.push(-1);
+          p.push("*"); // -beta
+
+          p.push(1);
+          p.push("+"); // 1 - beta
+
+          p.push("sqrt");
+
+          p.push(-1);
+          p.push("^");
+        }
+      },
+      {
          "avg",
          [](postfix_t& p)
          {

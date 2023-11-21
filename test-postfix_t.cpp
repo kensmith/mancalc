@@ -507,6 +507,14 @@ TEST(test_mph)
   CL(2.1124473397499175, p.top(), 1e-9);
 }
 
+TEST(test_gam)
+{
+  postfix_t p;
+  p.push(1000);
+  p.push("gam");
+  CL(1.00000000000556325028031451679, p.top(), 1e-12);
+}
+
 TEST(stringize)
 {
    postfix_t p;
