@@ -550,32 +550,32 @@ TEST(test_cf)
 
 TEST(test_past)
 {
-  // minutes to pasteurize for t in fahrenheit
+  // seconds to pasteurize for t in fahrenheit
   // no guarantees for safety, use your own judgement
   postfix_t p;
   p.push(126);
   p.push("past");
-  CL(281, p.top(), 1); // 281 minutes to pasteurize at 126
+  CL(281*60, p.top(), 1); // 281 minutes to pasteurize at 126
 
   p.push(130);
   p.push("past");
-  CL(112, p.top(), 1);
+  CL(112*60, p.top(), 1);
 
   p.push(135);
   p.push("past");
-  CL(35, p.top(), 1);
+  CL(35*60, p.top(), 1);
 
   p.push(140);
   p.push("past");
-  CL(11, p.top(), 1);
+  CL(11*60, p.top(), 1);
 
   p.push(145);
   p.push("past");
-  CL(3.49, p.top(), 1);
+  CL(3.49*60, p.top(), 1);
 
   p.push(160);
   p.push("past");
-  CL(0.109, p.top(), 1);
+  CL(0.109*60, p.top(), 1);
 
   p.push(125);
   p.push("past");

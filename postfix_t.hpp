@@ -742,6 +742,8 @@ private:
           p.push("^");
           p.push("1.23e15");
           p.push("*");
+          p.push(60.0);
+          p.push("*");
         }
       },
       {
