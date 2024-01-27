@@ -642,6 +642,13 @@ private:
           num_t mrads_per_second = p.pop();
           num_t distance_yds = p.pop();
           num_t rads_per_second = mrads_per_second / 1000.0;
+
+          // rads_per_second is typically quite small so
+          // tan(theta) ~= theta. We could probably omit
+          // this call to tan but leaving it in for
+          // completeness. For hasty mover calculations, you
+          // could easily omit it and get a good solution.
+          // https://en.wikipedia.org/wiki/Small-angle_approximation
           num_t displacement_per_second  = tan(rads_per_second);
           num_t speed_yps = distance_yds * displacement_per_second;
           num_t speed_mph = speed_yps * 3600.0 / 1760.0;
