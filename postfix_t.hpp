@@ -641,8 +641,9 @@ private:
           }
           num_t mrads_per_second = p.pop();
           num_t distance_yds = p.pop();
-          num_t tan_theta = tan(mrads_per_second / 1000.0);
-          num_t speed_yps = distance_yds * tan_theta;
+          num_t rads_per_second = mrads_per_second / 1000.0;
+          num_t displacement_per_second  = tan(rads_per_second);
+          num_t speed_yps = distance_yds * displacement_per_second;
           num_t speed_mph = speed_yps * 3600.0 / 1760.0;
           p.push(speed_mph);
         }
