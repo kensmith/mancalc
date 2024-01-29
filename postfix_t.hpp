@@ -683,6 +683,13 @@ private:
         }
       },
       {
+        "lor",
+        [](postfix_t& p)
+        {
+          p.push("gam");
+        }
+      },
+      {
          "avg",
          [](postfix_t& p)
          {
