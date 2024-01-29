@@ -620,7 +620,6 @@ private:
             ooo(eee) << "returns mils/s";
             return;
           }
-          ensure(p.can_bop());
           num_t speed_mph = p.pop();
           num_t distance_yds = p.pop();
           num_t speed_yps = speed_mph * 1760 / 3600;
@@ -1022,6 +1021,13 @@ private:
          {
             ensure(p.can_uop());
             p.pop();
+         }
+      },
+      {
+        "p",
+         [](postfix_t& p)
+         {
+            p.push("pop");
          }
       },
       {
