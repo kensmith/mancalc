@@ -659,7 +659,11 @@ private:
         "gam",
         [](postfix_t& p)
         {
-          ensure(p.can_uop());
+          if (!p.can_uop())
+          {
+            ooo(eee) << "lorentz factor - (1 - (v^2/c^2))^-0.5";
+            return;
+          }
           p.push(2);
           p.push("^"); // v^2
 
