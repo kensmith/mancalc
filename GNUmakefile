@@ -12,12 +12,20 @@ opt := -Os -flto=auto
 prog ?= $(notdir $(CURDIR))
 MAKEFLAGS := j$(cpus)
 SHELL := bash
+os := $(shell uname -o)
 g := g++ $(opt) $(debug)
 g += -std=c++17
 g += -Wall -Werror -pedantic -Wno-unused-local-typedefs
+$(if $(filter Darwin,$(os)), \
+  $(eval g += -I/opt/homebrew/include) \
+ )
 g := $(strip $(g))
 c := $(g) -c -MMD -I . -I ..
 l := $(g)
+$(if $(filter Darwin,$(os)), \
+  $(eval l += -L/opt/homebrew/lib) \
+ )
+l := $(strip $(l))
 s := $(wildcard *.cpp)
 o := $(addprefix .,$(patsubst %.cpp,%.o,$(s)))
 d := $(o:o=d)
