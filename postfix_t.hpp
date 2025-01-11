@@ -966,6 +966,19 @@ private:
          }
       },
       {
+         "log2",
+         [](postfix_t& p)
+         {
+            ensure(p.can_uop());
+            num_t rhs = p.pop();
+            num_t result = log10(rhs);
+            p.push(result);
+            p.push(2);
+            p.push("log");
+            p.push("/");
+         }
+      },
+      {
          "ln",
          [](postfix_t& p)
          {
