@@ -785,5 +785,17 @@ TEST(log2_test)
   p.push("32");
   p.push("^");
   p.push("l2");
-  CL(138.301699036395595, p.top(), 1e12);
+  CL(138.301699036395595, p.top(), 1e-12);
+}
+
+TEST(pressure)
+{
+  postfix_t p;
+  p.push("4720");
+  p.push("pr");
+  CL(25.15790264, p.top(), 1e-7);
+
+  p.push("1540");
+  p.push("pr");
+  CL(28.2932, p.top(), 1e-4);
 }

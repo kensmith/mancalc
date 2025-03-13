@@ -1265,6 +1265,22 @@ private:
             p.push(result);
          }
       },
+      {
+        "pr",
+        [](postfix_t& p)
+        {
+          // =29.9212524*pow(1-pow(10, -5)*2.25577*(B2/3.280839895), 5.25588)
+          // from https://www.engineeringtoolbox.com/air-altitude-pressure-d_462.html
+          ensure(p.can_uop());
+          num_t rhs = p.pop(); // expects feet of elevation
+          num_t meters = rhs / 3.280839895;
+          num_t inner_term = meters * 2.25577 * pow(10, -5);
+          inner_term = 1 - inner_term;
+          num_t outer_term = pow(inner_term, 5.25588);
+          num_t result = outer_term * 29.9212524;
+          p.push(result);
+        }
+      },
    };
 };
 
