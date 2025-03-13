@@ -777,3 +777,13 @@ TEST(removes_commas)
    p.push("123,123,123");
    EQ(123123123, p.top());
 }
+
+TEST(log2_test)
+{
+  postfix_t p;
+  p.push("20");
+  p.push("32");
+  p.push("^");
+  p.push("l2");
+  CL(138.301699036395595, p.top(), 1e12);
+}

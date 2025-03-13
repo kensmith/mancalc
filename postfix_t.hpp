@@ -966,6 +966,13 @@ private:
          }
       },
       {
+        "l2",
+        [](postfix_t& p)
+        {
+          p.push("log2");
+        }
+      },
+      {
          "log2",
          [](postfix_t& p)
          {
