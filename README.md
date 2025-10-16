@@ -1,3 +1,7 @@
+NB: if you don't need Mancalc's bignum support, use
+[c](https://github.com/kensmith/c) which has readline and
+expr support.
+
 Man Calc (manual calculator) is a stack-based calculator
 that can deal with very large or very small numbers (around
 2000 decimal places of precision), and supports both infix
